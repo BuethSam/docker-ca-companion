@@ -5,7 +5,7 @@ import io
 import time
 
 WATCHED_CONTAINERS = os.getenv("WATCH_CONTAINERS", "").split(",")
-CERT_DIR = "/config"
+CERT_DIR = "/certs"
 TARGET_DIR = "/usr/local/share/ca-certificates/"
 
 client = docker.from_env()
