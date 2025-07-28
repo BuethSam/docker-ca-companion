@@ -45,7 +45,15 @@ def listen_to_events():
             except Exception as e:
                 print(f"Failed to process container {container_id}: {e}")
 
+def process_existing_containers():
+    print("Checking existing containers...")
+    for container in client.containers.list():
+        if container.name in WATCHED_CONTAINERS:
+            print(f"Container {container.name} already running — injecting certs")
+            install_certs(container)
+
 if __name__ == "__main__":
+    process_existing_containers()
     while True:
         try:
             listen_to_events()
