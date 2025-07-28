@@ -6,4 +6,4 @@ RUN pip install docker
 
 COPY app.py .
 
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["python", "-u", "app.py"]
